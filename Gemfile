@@ -22,7 +22,7 @@ gem 'sqlite3'
 #  # gem 'therubyracer', platforms: :ruby
 #end
 
-#gem 'jquery-rails'
+gem 'jquery-rails'
 #gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails', github: 'anjlab/bootstrap-rails'
 #gem 'bootstrap-generators', '~> 3.0'
 
