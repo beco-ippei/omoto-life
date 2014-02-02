@@ -6,6 +6,8 @@ gem 'activerecord-deprecated_finders',
   git: 'git://github.com/rails/activerecord-deprecated_finders.git'
 gem 'active_decorator'
 
+gem 'devise'
+
 gem 'sqlite3'
 #group :production do
 #  gem 'pg'
