@@ -15,20 +15,22 @@
   <div id="top-menu">
     <div class="top-menu">
       <div class="top-title">
-        <a href="index.html"><h2 class="logo">
-          <i class="icon-leaf green"></i>おもとも！
-        </h2></a>
+        <%= link_to root_path do %>
+          <h2 class="logo">
+            <i class="icon-leaf green"></i>&nbsp;おもとも！
+          </h2>
+        <% end %>
       </div>
     </div>
 
-    <a href="/">
+    <%= link_to root_path do %>
       <div class="menu-item"><span class="menu-text">
-        <i class="icon-home"></i>Home
+        <i class="icon-home"></i>&nbsp;Home
       </span></div>
-    </a>
+    <% end %>
     <a href="/search">
       <div class="menu-item"><span class="menu-text">
-        <i class="icon-group"></i>みんなのおもと
+        <i class="icon-group"></i>&nbsp;みんなのおもと
       </span></div>
     </a>
     <a href="/map">
@@ -36,11 +38,24 @@
         <span class="menu-text">ご近所</span>
       </div>
     </a>
-    <a href="/login">
-      <div class="menu-item">
-        <span class="menu-text">ログイン</span>
-      </div>
-    </a>
+    <% if current_user %>
+      <%#= link_to new_user_session_path do %>
+        <div class="menu-item">
+          <span class="menu-text">アップロード</span>
+        </div>
+      <%# end %>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <div class="menu-item"><span class="menu-text">
+          <i class="icon-signout"></i>&nbsp;ログアウト
+        </span></div>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <div class="menu-item"><span class="menu-text">
+          <i class="icon-signin"></i>&nbsp;ログイン
+        </span></div>
+      <% end %>
+    <% end %>
   </div>
 </header>
 
