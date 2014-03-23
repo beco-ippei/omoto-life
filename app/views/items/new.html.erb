@@ -1,0 +1,27 @@
+<h1>おもと写真を登録する</h1>
+
+<%= form_tag(upload_items_path, multipart: true) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %>
+        prohibited this item from being saved:
+      </h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= label_tag :file %><br>
+    <%= file_field_tag :file %>
+  </div>
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', items_path %>
