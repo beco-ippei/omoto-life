@@ -1,0 +1,51 @@
+#top-menu
+  #top-title
+    = link_to root_path do
+      %h2.logo
+        %i.icon-leaf.green>
+        \&nbsp;おもとも！
+  /.top-menu
+  /  .top-title
+  /    = link_to root_path do
+  /      %h2.logo
+  /        %i.icon-leaf.green>
+  /        \&nbsp;おもとも！
+  #navigation
+    .menu-wrapper
+      = link_to root_path do
+        .menu-item
+          %span.menu-text
+            %i.icon-home>
+            \&nbsp;Home
+    .menu-wrapper
+      = link_to items_path do
+        .menu-item
+          %span.menu-text
+            %i.icon-group>
+            \&nbsp;みんなのおもと
+    /.menu-wrapper
+    /  %a{:href => "/map"}
+    /  .menu-item
+    /    %span.menu-text ご近所
+    .menu-wrapper
+      = link_to new_item_path do
+        .menu-item
+          %span.menu-text
+            アップロード
+    - if current_user
+      .menu-wrapper
+        = link_to destroy_user_session_path, method: :delete do
+          .menu-item
+            %span.menu-text
+              %i.icon-signout>
+              \&nbsp;ログアウト
+    - else
+      .menu-wrapper
+        = link_to new_user_session_path do
+          .menu-item
+            %span.menu-text
+              %i.icon-signin>
+              \&nbsp;ログイン
+  .clear
+
+

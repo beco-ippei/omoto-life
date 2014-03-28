@@ -7,6 +7,7 @@ gem 'activerecord-deprecated_finders',
 gem 'active_decorator'
 
 gem 'devise'
+gem 'haml-rails'
 
 gem 'sqlite3'
 #group :production do
@@ -29,7 +30,7 @@ gem 'jquery-rails'
 #gem 'bootstrap-generators', '~> 3.0'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+#gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -45,6 +46,8 @@ group :test, :development do
   gem 'ir_b'
   gem 'rb-readline', '~> 0.4.2'
   gem 'pry-rails'
+
+  gem 'erb2haml'
 end
 
 # Use ActiveModel has_secure_password

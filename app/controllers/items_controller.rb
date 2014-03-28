@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
       new_file_path = "/usr/share/nginx/images/#{user_id}"
       FileUtils.mkdir_p new_file_path
       FileUtils.mv(temp_file, "#{new_file_path}/#{@item.path}")
-      FileUtils.chmod(664, "#{new_file_path}/#{@item.path}")
+      FileUtils.chmod(0664, "#{new_file_path}/#{@item.path}")
 
       redirect_to @item, notice: 'Item was successfully created.'
     else

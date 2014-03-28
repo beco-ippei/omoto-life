@@ -1,9 +1,24 @@
-/*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-*/
-
 .tmp-image {
   max-width: 300px;
   max-height: 300px;
 }
+
+.item-image {
+  width: 280px;
+  margin: 0 5px;
+  text-align: center;
+}
+.list-item {
+  display: inline-block;
+  width: 300px;
+  border: solid 1px #ddd;
+  margin: 3px;
+  padding: 5px;
+}
+.functions {
+  float: right;
+}
+.clear-both {
+  clear: both;
+}
+
