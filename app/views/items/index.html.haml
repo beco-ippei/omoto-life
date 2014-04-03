@@ -3,21 +3,21 @@
 - conf_msg = 'Are you sure?'
 - @items.each do |item|
   .list-item
-    .item-image
-      = image_tag "//img.beco-ippei.net/1/#{item.path}", |
-        style: 'max-width: 300px; max-height: 300px;'    |
-    .item-info
+    = link_to item, class: 'item-link' do
+      .item-image
+        = image_tag "//img.beco-ippei.net/1/#{item.path}"
       .item-title
-        = link_to item.title, item
-        %span.functions
-          %span.func-item= link_to 'E', edit_item_path(item)
-          %span.func-item= link_to 'D', item, method: :delete, data: { confirm: conf_msg }
-        .clear-both
+        = item.title
+    .item-info
+      %span.functions
+        %span.func-item= link_to 'E', edit_item_path(item)
+        %span.func-item= link_to 'D', item, method: :delete, |
+          data: { confirm: conf_msg } |
+      .clear
       .item.breed
         Breed
         %span.text= item.breed
       .item.desc
-        Desc
         %span= item.description
-
+.clear
 

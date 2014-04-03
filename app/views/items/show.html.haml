@@ -1,16 +1,20 @@
 %p#notice= notice
-%p
-  %strong Title:
-  = @item.title
-%p
-  %strong Path:
-  = @item.path
-%p
-  %strong Description:
-  = @item.description
-%p
-  %strong Breed:
-  = @item.breed
+
+.item-view
+  .image-pane
+    = image_tag "//img.beco-ippei.net/1/#{@item.path}", class: 'tmp-image'
+  .info-pane
+    .field
+      = label_tag :title
+      = @item.title
+    .field
+      = label_tag :description
+      %br
+      = raw(h(@item.description).gsub(/\n/, '<br>'))
+    .field
+      = label_tag :breed
+      = @item.breed
+  .clear
 = link_to 'Edit', edit_item_path(@item)
 |
 \#{link_to 'Back', items_path}

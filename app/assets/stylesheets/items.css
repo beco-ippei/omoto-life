@@ -1,24 +1,40 @@
 .tmp-image {
-  max-width: 300px;
-  max-height: 300px;
+  max-width: 450px;
+  max-height: 450px;
 }
-
 .item-image {
-  width: 280px;
+  width: 130px;
+  height: 130px;
   margin: 0 5px;
   text-align: center;
 }
+.item-image img {
+  max-width: 130px;
+  max-height: 130px;
+}
 .list-item {
-  display: inline-block;
-  width: 300px;
+  float: left;
+  width: 150px;
+  height: 230px;
   border: solid 1px #ddd;
   margin: 3px;
   padding: 5px;
 }
+.list-item a.item-link:hover {
+  color: #0000ff;
+}
 .functions {
+  margin-top: -17px;
   float: right;
 }
-.clear-both {
-  clear: both;
-}
 
+.item-view .image-pane {
+  float: left;
+  margin: 10px;
+  width: 500px;
+  height: 500px;
+}
+.item-view .info-pane {
+  float: left;
+  margin: 10px;
+}

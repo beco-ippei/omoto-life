@@ -15,7 +15,7 @@
 /* TODO: apply media query */
 
 html, body {
-  height: 100%;
+  height: 98%;
 }
 body {
   background-color: #f5f5dc;
@@ -30,30 +30,27 @@ body {
   -webkit-box-shadow: 5px 1px 8px #ccc;
 }
 @media screen and (max-width: 1000px) {
-  .wrapper { width: 100%; }
+  .wrapper {
+    width: 100%;
+    -webkit-box-shadow: none;
+  }
 }
-.logo {
+/*.logo {
   font-family: "ヒラギノ丸ゴ";
   display: block;
   text-align: center;
-}
-#menu {
-  width: 160px;
-  height: 550px;
-/*  background-color: #ccffff; */
-  float: left;
-}
+}*/
 #top-menu {
   width: 100%;
-  height: 50px;
-  background-color: #cccccc;
+  height: 60px;
+/*  background-color: #cccccc; */
   -webkit-opacity: 0.7;
 }
 @media (max-width: 600px) {
   #navigation {
     display: none;
     width: 40px;
-    height: 40px;
+    height: 50px;
     float: right;
   }
   #navigation .menu-wrapper {
@@ -63,10 +60,25 @@ body {
 #top-title {
   display: inline-block;
   margin: 0 auto 0 auto;
-  width: 200px;
+  width: 190px;
   height: 100%;
   float: left;
 }
+.logo {
+  background:
+    url(/images/tmp_logo3.jpg)
+    no-repeat;
+  background-size: 70px 70px;
+  background-position: 0 -20px;
+  width: 70px;
+  height: 45px;
+  display: inline-block;
+}
+.logo-title {
+  font-family: "ヒラギノ丸ゴ";
+  font-size: 1.8em;
+}
+
 #navigation {
   margin-top: 8px;
   float: left;
@@ -79,6 +91,16 @@ body {
 }
 #top-menu a {
   text-decoration: none;
+}
+#header-status {
+  margin: 5px 0;
+  height: 20px;
+  padding: 3px;
+  background-color: #eeeeee;
+}
+#header-status .float {
+  float: right;
+  margin-right: 15px;
 }
 .menu-item {
   border: solid 1px #666;
@@ -131,6 +153,8 @@ article.main-contents {
 footer {
   margin-top: -40px;
   clear: both;
+  position: absolute;
+  bottom: 30px;
 }
 .footer-line {
   font-size: 0.6em;

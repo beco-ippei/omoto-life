@@ -1,22 +1,10 @@
 #top-menu
   #top-title
     = link_to root_path do
-      %h2.logo
-        %i.icon-leaf.green>
-        \&nbsp;おもとも！
-  /.top-menu
-  /  .top-title
-  /    = link_to root_path do
-  /      %h2.logo
-  /        %i.icon-leaf.green>
-  /        \&nbsp;おもとも！
+      %span.logo
+      %span.logo-title
+        おもとも！
   #navigation
-    .menu-wrapper
-      = link_to root_path do
-        .menu-item
-          %span.menu-text
-            %i.icon-home>
-            \&nbsp;Home
     .menu-wrapper
       = link_to items_path do
         .menu-item
@@ -32,20 +20,27 @@
         .menu-item
           %span.menu-text
             アップロード
-    - if current_user
-      .menu-wrapper
-        = link_to destroy_user_session_path, method: :delete do
-          .menu-item
-            %span.menu-text
-              %i.icon-signout>
-              \&nbsp;ログアウト
-    - else
-      .menu-wrapper
-        = link_to new_user_session_path do
-          .menu-item
-            %span.menu-text
-              %i.icon-signin>
-              \&nbsp;ログイン
   .clear
-
+#header-status
+  %span.alert.alert-notice
+    - if notice
+      = notice
+    - elsif alert
+      = alert
+  - if current_user
+    %span.logout.float
+      (
+      = link_to destroy_user_session_path do
+        %i.icon-signout>
+        ログアウト
+      )
+    %span.user-info.float
+      = current_user.name
+  - else
+    %span.logout.float
+      (
+      = link_to new_user_session_path do
+        %i.icon-signin>
+        ログイン
+      )
 
