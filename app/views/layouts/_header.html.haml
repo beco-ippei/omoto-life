@@ -35,9 +35,10 @@
         ログアウト
       )
     %span.user-info.float
-      = current_user.name
+      = link_to user_path(current_user) do
+        = current_user.name
   - else
-    %span.logout.float
+    %span.login.float
       (
       = link_to new_user_session_path do
         %i.icon-signin>
