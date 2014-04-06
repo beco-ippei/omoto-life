@@ -1,0 +1,11 @@
+.top-image {
+  max-height: 250px;
+  width: 600px;
+  text-align: center;
+  margin: auto;
+  overflow: hidden;
+  margin-top: 130px;
+}
+.top-image img {
+}
+

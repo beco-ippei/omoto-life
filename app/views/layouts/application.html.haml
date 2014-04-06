@@ -15,8 +15,7 @@
         = yield
       .clear
       %footer
-        .footer-line
-          \&copy;kato Ippei 2014
+        = render partial: 'layouts/footer'
     #footer-meta
       = javascript_include_tag "application"
 
