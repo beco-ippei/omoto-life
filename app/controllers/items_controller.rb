@@ -35,6 +35,8 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.user_id = current_user.id
+
     temp_file = "./public/images/tmp/#{@item.path}"
 
     if @item.save
