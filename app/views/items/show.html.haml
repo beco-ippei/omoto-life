@@ -1,20 +1,27 @@
 %p#notice= notice
 
+- conf_msg = 'Are you sure?'
 .item-view
   .image-pane
-    = image_tag "//img.beco-ippei.net/1/#{@item.path}", class: 'tmp-image'
+    = image_tag image_path(@item), class: 'tmp-image'
   .info-pane
+    - if current_user && current_user.id == @item.user.id
+      .edit.field
+        = link_to edit_item_path(@item) do
+          Edit
+        = link_to @item, method: :delete, data: { confirm: conf_msg } do
+          Delete
+    .field.title
+      %span.field-value
+        「
+        = @item.title
+        」
     .field
-      = label_tag :title
-      = @item.title
+      品種:
+      %span.field-value
+        = @item.breed
     .field
-      = label_tag :description
-      %br
-      = raw(h(@item.description).gsub(/\n/, '<br>'))
-    .field
-      = label_tag :breed
-      = @item.breed
+      .desc-text
+        = raw(h(@item.description).gsub(/\n/, '<br>'))
   .clear
-= link_to 'Edit', edit_item_path(@item)
-|
-\#{link_to 'Back', items_path}
+

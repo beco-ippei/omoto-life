@@ -1,23 +1,20 @@
 %h1 Listing items
 
-- conf_msg = 'Are you sure?'
 - @items.each do |item|
   .list-item
     = link_to item, class: 'item-link' do
       .item-image
-        = image_tag "//img.beco-ippei.net/1/#{item.path}"
+        = image_tag image_path(item)
       .item-title
         = item.title
     .item-info
-      %span.functions
-        %span.func-item= link_to 'E', edit_item_path(item)
-        %span.func-item= link_to 'D', item, method: :delete, |
-          data: { confirm: conf_msg } |
-      .clear
+      .item.owner
+        = link_to user_path(item.user) do
+          %span.text= item.user.name
       .item.breed
         Breed
         %span.text= item.breed
-      .item.desc
-        %span= item.description
+      /.item.desc
+      /  %span= item.description
 .clear
 
