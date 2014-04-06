@@ -1,13 +1,12 @@
 %p#notice= notice
+
+- if current_user && current_user.id == @user.id
+  = link_to 'Edit', edit_user_path(@user)
+
 %p
   %strong Name:
   = @user.name
 %p
-  %strong Email:
-  = @user.email
-%p
   %strong Age:
   = @user.age
-= link_to 'Edit', edit_user_path(@user)
-|
-\#{link_to 'Back', users_path}
+

@@ -1,4 +1,21 @@
 /*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
+ will automatically be included in application.css
 */
+
+.user-item-image {
+  width: 80px;
+  height: 80px;
+  margin: 0 5px;
+/*  display: table-cell; */
+  float: left;
+  text-align: center;
+  border: solid 1px #ccc;
+}
+.user-item-image a {
+  display: table-cell;
+  vertical-align: middle;
+}
+.user-item-image img {
+  max-width: 80px;
+  max-height: 80px;
+}
