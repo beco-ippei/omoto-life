@@ -9,10 +9,8 @@ gem 'active_decorator'
 gem 'devise'
 gem 'haml-rails'
 
-gem 'sqlite3'
-#group :production do
-#  gem 'pg'
-#end
+#gem 'sqlite3'
+gem 'pg'
 
 #group :assets do
 #  gem 'sass-rails', '~> 4.0.0'
