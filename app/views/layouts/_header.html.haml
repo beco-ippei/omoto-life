@@ -10,7 +10,7 @@
         .menu-item
           %span.menu-text
             %i.icon-group>
-            \&nbsp;みんなのおもと
+            \&nbsp;おもと
     /.menu-wrapper
     /  %a{:href => "/map"}
     /  .menu-item
@@ -22,11 +22,10 @@
             アップロード
   .clear
 #header-status
-  %span.alert.alert-notice
-    - if notice
-      = notice
-    - elsif alert
-      = alert
+  - if notice
+    %span#notice= notice
+  - elsif alert
+    %span#alert= alert
   - if current_user
     %span.logout.float
       (
