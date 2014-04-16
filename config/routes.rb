@@ -8,5 +8,5 @@ OmotoFriends::Application.routes.draw do
   end
 
   devise_for :users
-  resources :users
+  resources :users, except: [:new, :create]
 end
