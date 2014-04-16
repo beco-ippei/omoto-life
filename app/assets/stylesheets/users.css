@@ -1,5 +1,6 @@
 /*
- will automatically be included in application.css
+ will automatically be included
+ in application.css
 */
 
 .user-item-image {
@@ -19,3 +20,65 @@
   max-width: 80px;
   max-height: 80px;
 }
+.signin-wrapper {
+/*  text-align: center; */
+}
+.signin-contents {
+/*  margin: 15px auto; */
+  margin: 15px auto 15px 30px;
+  width: 100%;
+}
+.signin-form {
+  border-radius: 5px;
+  border: solid 1px #ccc;
+  padding: 10px;
+  width: 400px;
+  display: inline-block;
+}
+.signin-links {
+  display: inline-block;
+  text-align: center;
+  margin: 10px;
+  padding: 10px auto 10px 15px;
+  width: 400px;
+}
+@media screen and (max-width: 1030px) {
+  .signin-contents {
+    width: 90%;
+    margin: 15px 0;
+  }
+  .signin-links {
+    width: 90%;
+    margin: 15px 0;
+  }
+}
+.signin-form .field {
+  display: table-row;
+  text-align: left;
+  margin: 3px;
+}
+.signin-form .field label {
+  display: table-cell;
+  height: 30px;
+  width: 30%;
+  text-align: right;
+}
+.signin-form .field .input {
+  display: table-cell;
+  padding-left: 15px;
+  height: 30px;
+  width: 70%;
+}
+.signin-contents .button {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
+  border-radius: 4px;
+  display: table-cell;
+  vertical-align: middle;
+  margin: 10px;
+  width: 130px;
+  height: 30px;
+  text-decoration: none;
+}
+

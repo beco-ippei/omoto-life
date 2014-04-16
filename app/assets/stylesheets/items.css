@@ -1,4 +1,4 @@
-.tmp-image {
+.main-image {
   max-width: 450px;
   max-height: 450px;
 }
@@ -33,12 +33,32 @@
 .item-view .image-pane {
   float: left;
   margin: 10px;
-  width: 550px;
+  width: 500px;
   height: 500px;
 /*  border-right: solid 2px #ccc; */
-  padding: 10px;
+  padding: 0 25px;
   text-align: center;
   background-color: #eec;
+  position: relative;
+}
+.rotate-r {
+  position: absolute;
+  right: 5px;
+  bottom: 38px;
+  font-size: 1.4em;
+}
+.rotate-l {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  font-size: 1.4em;
+}
+.image-frame {
+  width: 500px;
+  height: 500px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
 }
 .item-view .info-pane {
   float: left;
@@ -68,4 +88,7 @@
 }
 .desc-text {
   font-size: 0.9em;
+}
+.actions.submit {
+  margin: 15px;
 }
