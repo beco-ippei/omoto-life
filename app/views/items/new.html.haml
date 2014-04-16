@@ -1,17 +1,18 @@
 %h1 おもと写真を登録する
+= link_to 'Back', items_path
+
+- if @item.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(@item.errors.count, "error")
+      prohibited this item from being saved:
+    %ul
+      - @item.errors.full_messages.each do |msg|
+        %li= msg
 = form_tag(upload_items_path, multipart: true) do |f|
-  - if @item.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@item.errors.count, "error")
-        prohibited this item from being saved:
-      %ul
-        - @item.errors.full_messages.each do |msg|
-          %li= msg
   .field
     = label_tag :file
     %br/
     = file_field_tag :file
-  .actions
-    = submit_tag
-= link_to 'Back', items_path
+  .actions.submit
+    = submit_tag 'アップロード'

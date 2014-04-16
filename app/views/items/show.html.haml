@@ -1,9 +1,7 @@
-%p#notice= notice
-
 - conf_msg = 'Are you sure?'
 .item-view
   .image-pane
-    = image_tag image_path(@item), class: 'tmp-image'
+    = image_tag image_path(@item), class: 'main-image'
   .info-pane
     - if current_user && current_user.id == @item.user.id
       .edit.field

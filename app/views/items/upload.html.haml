@@ -1,29 +1,21 @@
-= form_for @item do |f|
-  - if @item.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@item.errors.count, "error")
-        prohibited this item from being saved:
-      %ul
-        - @item.errors.full_messages.each do |msg|
-          %li= msg
-  .item-view
-    .image-pane
-      = image_tag "/images/tmp/#{@item.path}", class: 'tmp-image'
+- if @item.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(@item.errors.count, "error")
+      prohibited this item from being saved:
+    %ul
+      - @item.errors.full_messages.each do |msg|
+        %li= msg
+.item-view
+  .image-pane
+    %span.image-frame
+      = image_tag "/images/tmp/#{@item.path}", class: 'main-image'
+    %button.rotate-r
+      %i.icon-rotate-right
+    %button.rotate-l
+      %i.icon-rotate-left
+  .info-pane
+    = form_for @item do |f|
       = f.hidden_field :path
-    .info-pane
-      .field
-        = f.label :title
-        %br
-        = f.text_field :title, size: 53
-      .field
-        = f.label :description
-        %br
-        = f.text_area :description, rows: 6, cols: 60
-      .field
-        = f.label :breed
-        %br
-        = f.text_field :breed
-      .actions
-        = f.submit
-    .clear
+      = render partial: 'form', locals: {f: f}
+

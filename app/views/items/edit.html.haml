@@ -1,5 +1,26 @@
-%h1 Editing item
-= render 'form'
-= link_to 'Show', @item
-|
-\#{link_to 'Back', items_path}
+/%h1 Editing item
+/TODO: remove page name but bread crum on header-line ?
+
+- if @item.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(@item.errors.count, "error")
+      prohibited this item from being saved:
+    %ul
+      - @item.errors.full_messages.each do |msg|
+        %li= msg
+.item-view
+  .image-pane
+    %span.image-frame
+      = image_tag image_path(@item), class: 'main-image'
+    %button.rotate-r
+      %i.icon-rotate-right
+    %button.rotate-l
+      %i.icon-rotate-left
+  .info-pane
+    .edit.field
+      = link_to @item do
+        Cancel
+    = form_for @item do |f|
+      = render partial: 'form', locals: {f: f}
+
