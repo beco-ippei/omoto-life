@@ -1,19 +1,18 @@
 - conf_msg = 'Are you sure?'
 .item-view
   .image-pane
-    = image_tag image_path(@item), class: 'main-image'
+    %span.image-frame
+      = image_tag image_path(@item), class: 'main-image'
   .info-pane
     - if current_user && current_user.id == @item.user.id
       .edit.field
         = link_to edit_item_path(@item) do
           Edit
-        = link_to @item, method: :delete, data: { confirm: conf_msg } do
+        = link_to @item, method: :delete, data: {confirm: conf_msg} do
           Delete
     .field.title
       %span.field-value
-        「
-        = @item.title
-        」
+        = "「 #{@item.title} 」"
     .field
       品種:
       %span.field-value
