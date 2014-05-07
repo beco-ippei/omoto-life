@@ -1,0 +1,34 @@
+%h1 ログイン
+
+.signin-wrapper
+  .signin-contents
+    .signin-form
+      = form_tag user_sessions_path, method: :post do
+        .field
+          = label_tag :email
+          .input
+            = email_field_tag :email, @user.email, autofocus: true, size:25
+        .field
+          = label_tag :password
+          .input
+            = password_field_tag :password, size: 25
+        /- if devise_mapping.rememberable?
+        /  %div
+        /    = f.check_box :remember_me
+        /    = f.label :remember_me
+        .action.submit.field
+          %label
+          .input
+            = submit_tag 'ログイン', class: 'button'
+        /.field
+        /  %label
+        /  .input
+        /    = link_to new_password_path(resource_name) do
+        /      パスワードを忘れた場合
+
+    .signin-links
+      /= link_to new_registration_path(resource_name) do
+      .button
+        会員登録
+
+

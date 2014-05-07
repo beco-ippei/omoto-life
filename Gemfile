@@ -6,7 +6,7 @@ gem 'activerecord-deprecated_finders',
   git: 'git://github.com/rails/activerecord-deprecated_finders.git'
 gem 'active_decorator'
 
-gem 'devise'
+gem 'sorcery'
 gem 'haml-rails'
 
 #gem 'sqlite3'
