@@ -29,7 +29,7 @@
   - if current_user
     %span.logout.float
       (
-      = link_to destroy_user_session_path do
+      = link_to logout_path do
         %i.icon-signout>
         ログアウト
       )
@@ -39,7 +39,7 @@
   - else
     %span.login.float
       (
-      = link_to new_user_session_path do
+      = link_to login_path do
         %i.icon-signin>
         ログイン
       )

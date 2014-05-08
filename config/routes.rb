@@ -7,6 +7,9 @@ OmotoFriends::Application.routes.draw do
      end
   end
 
-  devise_for :users
   resources :users, except: [:new, :create]
+
+  resources :user_sessions
+  get 'login' => 'user_sessions#new', :as => :login
+  get 'logout' => 'user_sessions#destroy', :as => :logout
 end
