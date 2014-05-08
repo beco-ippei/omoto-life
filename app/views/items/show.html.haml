@@ -20,5 +20,20 @@
     .field
       .desc-text
         = raw(h(@item.description).gsub(/\n/, '<br>'))
+    .comments
+      - @item.comments.each do |comment|
+        .field.comment
+          = link_to user_path comment.user do
+            = comment.user.name
+          &nbsp;:
+          %span.field-value
+            = comment.body
+      - if current_user
+        .field
+          = form_tag item_comments_path(@item), method: :post do |f|
+            = text_area_tag :body
+            = button_tag do
+              送信
+
   .clear
 
