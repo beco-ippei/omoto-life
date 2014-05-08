@@ -6,6 +6,13 @@
   overflow: hidden;
   margin-top: 130px;
 }
+@media screen and (max-width: 700px) {
+  .top-image {
+    max-height: 250px;
+    width: 98%;
+    margin: 50px 0;
+  }
+}
 .top-image img {
 }
 

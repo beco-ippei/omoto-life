@@ -67,6 +67,9 @@
   font-size: 1.2em;
 }
 @media screen and (max-width: 1000px) {
+  .item-view .image-frame {
+    width: 100%;
+  }
   .item-view .info-pane {
     width: 100%;
   }
@@ -91,4 +94,7 @@
 }
 .actions.submit {
   margin: 15px;
+}
+.item-view .field.title {
+  margin: 20px 0;
 }

@@ -88,7 +88,7 @@ h1 {
 }
 #top-menu .menu-wrapper {
   margin: 5px auto 2px auto;
-  width: 150px;
+  width: 120px;
   height: 30px;
   display: inline-block;
 }
@@ -108,7 +108,7 @@ h1 {
 .menu-item {
   border: solid 1px #666;
 /*  background-color: #c0f0f0; */
-  width: 150px;
+  width: 100%;
   height: 30px;
   margin: 5px auto 2px auto;
   text-align: center;
