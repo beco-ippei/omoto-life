@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_filter :require_login, only: [:new, :upload, :create]
   #TODO: authentication filter for upload
 
   def index
@@ -94,4 +95,6 @@ class ItemsController < ApplicationController
   def item_params     # Strong parameters
     params.require(:item).permit(:title, :path, :description, :breed)
   end
+
+  #TODO: should imple filter item owner
 end

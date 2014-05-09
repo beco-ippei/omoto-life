@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
   def store_location
     session[:previous_url] = request.fullpath
   end
+
+  # configure at config/initializers/sorcery.rb
+  def redirect_for_login
+    store_location
+    redirect_to login_path
+  end
 end
