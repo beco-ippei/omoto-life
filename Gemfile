@@ -12,6 +12,11 @@ gem 'haml-rails'
 #gem 'sqlite3'
 gem 'pg'
 
+# use ImageMagick
+# yum -y install libjpeg-turbo-devel libpng-devel
+# yum -y install ImageMagick ImageMagick-devel
+gem 'rmagick'
+
 #group :assets do
 #  gem 'sass-rails', '~> 4.0.0'
 #  gem 'coffee-rails', '~> 4.0.0'

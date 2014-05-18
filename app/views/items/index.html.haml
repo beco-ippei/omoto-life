@@ -4,7 +4,7 @@
   .list-item
     = link_to item, class: 'item-link' do
       .item-image
-        = image_tag image_path(item)
+        = image_tag thumbnail_path(item)
       .item-title
         = item.title
     .item-info
