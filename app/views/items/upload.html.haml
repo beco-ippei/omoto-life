@@ -10,10 +10,10 @@
   .image-pane
     %span.image-frame
       = image_tag @photo.tempfile_path, class: 'main-image'
-    %button.rotate-r
-      %i.icon-rotate-right
-    %button.rotate-l
-      %i.icon-rotate-left
+    %button.rotate.rotate-r.btn.btn-warning.btn-sm
+      %i.fa.fa-rotate-right
+    %button.rotate.rotate-l.btn.btn-warning.btn-sm
+      %i.fa.fa-rotate-left
   .info-pane
     = form_for @item do |f|
       = hidden_field_tag :temp_file, @photo.temp_file

@@ -1,6 +1,7 @@
 /%h1 Editing item
 /TODO: remove page name but bread crum on header-line ?
 
+- conf_msg = 'おもと情報を削除すると投稿した画像と一緒に元に戻せなくなります。よろしいですか？'
 - if @item.errors.any?
   #error_explanation
     %h2
@@ -13,14 +14,38 @@
   .image-pane
     %span.image-frame
       = image_tag image_path(@item), class: 'main-image'
-    %button.rotate-r
-      %i.icon-rotate-right
-    %button.rotate-l
-      %i.icon-rotate-left
+    / 画像の回転ボタン
+    %button.image-manipulate.rotate-r.btn.btn-warning.btn-sm
+      %i.fa.fa-rotate-right
+    %button.image-manipulate.rotate-l.btn.btn-warning.btn-sm
+      %i.fa.fa-rotate-left
+    / 画像のサイズ調整ボタン (top / botton)
+    %button.image-manipulate.top.left-side.btn.btn-info.btn-sm
+      %i.fa.fa-arrow-down
+    %button.image-manipulate.top.btn.btn-warning.btn-sm
+      %i.fa.fa-arrow-up
+    %button.image-manipulate.bottom.left-side.btn.btn-info.btn-sm
+      %i.fa.fa-arrow-up
+    %button.image-manipulate.bottom.btn.btn-warning.btn-sm
+      %i.fa.fa-arrow-down
+    / 画像のサイズ調整ボタン (left / right)
+    %button.image-manipulate.left.over.btn.btn-info.btn-sm
+      %i.fa.fa-arrow-right
+    %button.image-manipulate.left.btn.btn-warning.btn-sm
+      %i.fa.fa-arrow-left
+    %button.image-manipulate.right.over.btn.btn-info.btn-sm
+      %i.fa.fa-arrow-left
+    %button.image-manipulate.right.btn.btn-warning.btn-sm
+      %i.fa.fa-arrow-right
+    / 画像変更保存ボタン
+    %button.image-manipulate.save.btn.btn-primary
+      %i.fa.fa-cloud-upload &nbsp;変更を保存
   .info-pane
     .edit.field
       = link_to @item do
-        Cancel
+        %button{class: 'btn btn-default'} 変更をやめる
+      = link_to @item, method: :delete, data: {confirm: conf_msg} do
+        %button{class: 'btn btn-danger'} 削除
     = form_for @item do |f|
       = render partial: 'form', locals: {f: f}
 

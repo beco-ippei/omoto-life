@@ -1,3 +1,9 @@
+%ol.breadcrumb.process
+  %li
+    %button{class: 'btn btn-success'} おもと写真のアップロード
+  %li おもと情報の入力
+  %li おもと情報の登録完了
+
 %h1 おもと写真を登録する
 
 - if @photo.errors.any?
@@ -10,11 +16,15 @@
         %li= msg
 = form_tag(upload_items_path, multipart: true) do |f|
   .field
+    %p
+      初めに、登録したいおもとのメイン画像をアップロードします。メイン画像は後で変更できます
     = label_tag :file
     %br/
     = file_field_tag :file
   .actions.submit
-    = submit_tag 'アップロード'
+    = submit_tag 'アップロードしておもと情報の入力を行う', {class: 'btn btn-primary'}
 
-= link_to 'Back', items_path
+%hr
+= link_to items_path do
+  %button{class: 'btn btn-default'} アップロードをやめる
 

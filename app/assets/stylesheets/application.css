@@ -61,7 +61,7 @@ h1 {
 #top-title {
   display: inline-block;
   margin: 0 auto 0 auto;
-  width: 190px;
+  width: 170px;
   height: 100%;
   float: left;
 }
@@ -79,12 +79,24 @@ h1 {
   font-family: "ヒラギノ丸ゴ";
   font-size: 1.8em;
 }
+@media screen and (max-width: 800px) {
+/*  .logo-title { font-size: 1.4em; } */
+  .nav.navbar-nav li { font-size: 1.0em; }
+}
 .login {
   font-size: 1.1em;
+}
+.nav.navbar-nav li {
+  font-size: 1.2em;
 }
 #navigation {
   margin-top: 8px;
   float: left;
+}
+.breadcrumb.process li + li:before {
+  content: '>';
+  font-size: 1.6em;
+  vertical-align: middle;
 }
 #top-menu .menu-wrapper {
   margin: 5px auto 2px auto;

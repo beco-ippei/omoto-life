@@ -1,52 +1,61 @@
-#top-menu
-  #top-title
-    = link_to root_path do
-      %span.logo
-      %span.logo-title
-        おもとも！
-  #navigation
-    .menu-wrapper
-      = link_to items_path do
-        .menu-item
-          %span.menu-text
+.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle{type: "button", data: {toggle: "collapse", target: ".navbar-collapse"} }
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to root_path, class: "navbar-brand" do
+        #top-title
+          /%span.logo
+          %span.logo-title
+            おもとも！
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          = link_to root_path do
+            %i.fa.fa-home>
+            \&nbsp;Home
+        %li.active
+          = link_to items_path do
             %i.fa.fa-pagelines>
             \&nbsp;おもと
-    .menu-wrapper
-      = link_to users_path do
-        .menu-item
-          %span.menu-text
+        %li
+          = link_to users_path do
             %i.fa.fa-users>
             \&nbsp;Users
-    /.menu-wrapper
-    /  %a{:href => "/map"}
-    /  .menu-item
-    /    %span.menu-text ご近所
-    .menu-wrapper
-      = link_to new_item_path do
-        .menu-item
-          %span.menu-text
-            アップロード
-  .clear
-#header-status
-  - if notice
-    %span#notice= notice
-  - elsif alert
-    %span#alert= alert
-  - if current_user
-    %span.logout.float
-      (
-      = link_to logout_path do
-        %i.icon-signout>
-        ログアウト
-      )
-    %span.user-info.float
-      = link_to user_path(current_user) do
-        = current_user.name
-  - else
-    %span.login.float
-      (
-      = link_to login_path do
-        %i.icon-signin>
-        ログイン
-      )
+        /%li
+        /  %a{:href => "/map"}
+        /  .menu-item
+        /    %span.menu-text ご近所
+        %li
+          = link_to new_item_path do
+            %i.fa.fa-upload>
+            \&nbsp;アップロード
+
+      %ul.nav.navbar-nav.navbar-right
+        - if current_user
+          %li.dropdown
+            %a.dropdown-toggle{href: "#", "data-toggle" => "dropdown"}
+              %i.fa.fa-user
+              = current_user.name
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                = link_to 'マイページ', user_path(current_user)
+              %li
+                %a{href:"#"}
+                  %i.fa.fa-gears
+                  設定?
+              %li.divider
+              %li
+                = link_to logout_path do
+                  %i.icon-signout>
+                  ログアウト
+        - else
+          %li
+            = link_to login_path do
+              %i.icon-signin>
+              ログイン
 

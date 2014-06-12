@@ -1,4 +1,4 @@
-%h1 Listing items
+%h1 みんなのおもと
 
 - @items.each do |item|
   .list-item
@@ -12,7 +12,7 @@
         = link_to user_path(item.user) do
           %span.text= item.user.name
       .item.breed
-        Breed
+        品種:
         %span.text= item.breed
       /.item.desc
       /  %span= item.description

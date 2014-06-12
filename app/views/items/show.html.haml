@@ -1,4 +1,3 @@
-- conf_msg = 'Are you sure?'
 .item-view
   .image-pane
     %span.image-frame
@@ -7,9 +6,7 @@
     - if current_user && current_user.id == @item.user.id
       .edit.field
         = link_to edit_item_path(@item) do
-          Edit
-        = link_to @item, method: :delete, data: {confirm: conf_msg} do
-          Delete
+          %button{class: 'btn btn-warning'} 変更する
     .field.title
       %span.field-value
         = "「 #{@item.title} 」"
@@ -20,6 +17,7 @@
     .field
       .desc-text
         = raw(h(@item.description).gsub(/\n/, '<br>'))
+    %hr
     .comments
       - @item.comments.each do |comment|
         .field.comment
@@ -31,9 +29,11 @@
       - if current_user
         .field
           = form_tag item_comments_path(@item), method: :post do |f|
-            = text_area_tag :body
-            = button_tag do
-              送信
+            .comment-input
+              .comment-text
+                = text_area_tag :body, nil, rows: 2, class: 'form-control comment'
+              .comment-submit
+                = button_tag '送信', class: 'btn btn-info comment'
 
   .clear
 
