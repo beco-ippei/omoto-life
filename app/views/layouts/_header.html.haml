@@ -13,15 +13,15 @@
             おもとも！
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li
+        %li{ class: root_now? ? 'active' : '' }
           = link_to root_path do
             %i.fa.fa-home>
             \&nbsp;Home
-        %li.active
+        %li{ class: items_now? ? 'active' : '' }
           = link_to items_path do
             %i.fa.fa-pagelines>
             \&nbsp;おもと
-        %li
+        %li{ class: users_now? ? 'active' : '' }
           = link_to users_path do
             %i.fa.fa-users>
             \&nbsp;Users
@@ -29,7 +29,7 @@
         /  %a{:href => "/map"}
         /  .menu-item
         /    %span.menu-text ご近所
-        %li
+        %li{ class: upload_now? ? 'active' : '' }
           = link_to new_item_path do
             %i.fa.fa-upload>
             \&nbsp;アップロード
@@ -46,8 +46,8 @@
                 = link_to 'マイページ', user_path(current_user)
               %li
                 %a{href:"#"}
-                  %i.fa.fa-gears
-                  設定?
+                  %i.fa.fa-gear
+                  設定
               %li.divider
               %li
                 = link_to logout_path do
