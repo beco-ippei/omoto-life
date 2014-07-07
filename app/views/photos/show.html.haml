@@ -1,11 +1,10 @@
 .item-view
   .image-pane
-    - if @item.photos.empty?
-      %span.image-frame
+    %span.image-frame
+      - if @item.photos.empty?
         %span.main-image
           まだ写真がアップロードされていません
-    - else
-      %span.image-frame
+      - else
         = image_tag image_path(@item), class: 'main-image'
       .thumb
         %ul

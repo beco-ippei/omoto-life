@@ -2,10 +2,15 @@ OmotoFriends::Application.routes.draw do
   root 'home#index'
 
   resources :items do
-    collection do
-      post 'upload'
-    end
+    #collection do
+    #  post 'upload'
+    #end
     resources :comments
+    resources :photos do
+      collection do
+        post 'upload'
+      end
+    end
   end
 
   resources :users, except: [:new, :create]

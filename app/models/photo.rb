@@ -15,6 +15,10 @@ class Photo < ActiveRecord::Base
     @temp_file = temp_file.path
 
     img = Magick::Image.read(file.path).first
+
+    # 撮影日時
+    self.taken_at = _exif_datetime(img)
+
     if img.rows > 2000 || img.columns > 2000
       # これから縮小指定される可能性もあるので大きめにしておく
       img.resize_to_fit! 2000
@@ -58,6 +62,11 @@ class Photo < ActiveRecord::Base
   end
 
   private
+
+  def _exif_datetime(img)
+    exif_time = img.get_exif_by_entry('DateTimeOriginal').first
+    DateTime.strptime(exif_time[1], '%Y:%m:%d %H:%M:%S') if exif_time
+  end
 
   def _valid_file?
     if file.content_type != 'image/jpeg'

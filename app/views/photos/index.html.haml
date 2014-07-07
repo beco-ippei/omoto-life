@@ -1,0 +1,23 @@
+%h1 みんなのおもと
+
+- @items.each do |item|
+  .list-item
+    = link_to item, class: 'item-link' do
+      .item-image
+        - unless item.photos.empty?
+          = image_tag thumbnail_path(item)
+        - else
+          %span No Image
+      .item-title
+        = item.title
+    .item-info
+      .item.owner
+        = link_to user_path(item.user) do
+          %span.text= item.user.name
+      .item.breed
+        品種:
+        %span.text= item.breed
+      /.item.desc
+      /  %span= item.description
+.clear
+

@@ -1,0 +1,24 @@
+%ol.breadcrumb.process
+  %li
+    %button{class: 'btn btn-success'} 写真アップロード
+  %li 写真の調整・情報入力
+  %li 登録完了
+
+%h1 おもと写真を登録する
+
+= render partial: 'layouts/errors', locals: {obj: @photo}
+
+= form_tag(upload_item_photos_path(@item), multipart: true) do |f|
+  .field
+    %p
+      登録したいおもとの写真をアップロードします。次の画面で正式登録します
+    = label_tag :file
+    %br/
+    = file_field_tag :file
+  .actions.submit
+    = submit_tag '写真の調整・情報入力に進む', {class: 'btn btn-primary'}
+
+%hr
+= link_to items_path do
+  %button{class: 'btn btn-default'} アップロードをやめる
+

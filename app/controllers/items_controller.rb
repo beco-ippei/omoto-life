@@ -12,44 +12,36 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @photo = Photo.new
+    @item = Item.new
   end
 
   def edit
-  end
-
-  def upload
-    @photo = Photo.new file: params[:file]
-
-    if @photo.valid?
-      @photo.create_tempfile
-      @item = Item.new
-    else
-      render :new, notice: 'upload failed'
-    end
   end
 
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
 
-    @photo = Photo.new temp_file: params[:temp_file]
+    #@photo = Photo.new temp_file: params[:temp_file]
 
-    @item.transaction do
-      if !File.exist? @photo.temp_file
-        render action: 'new', notice: 'temp image file not found'
-      else
-        @item.save!
+    @item.save!
+    redirect_to @item, notice: 'Item was successfully created.'
 
-        @item.add_photo @photo
-        redirect_to @item, notice: 'Item was successfully created.'
-      end
-    end
+#    @item.transaction do
+#      #if !File.exist? @photo.temp_file
+#      #  render action: 'new', notice: 'temp image file not found'
+#      #else
+#        @item.save!
+#
+##        @item.add_photo @photo
+#        redirect_to @item, notice: 'Item was successfully created.'
+#      #end
+#    end
 
   rescue => e
     logger.error e.message
     logger.error e.backtrace.join "\n"
-    render action: 'new', notice: 'failed to register photo'
+    render action: 'new', notice: 'failed to register item'
   end
 
   def update

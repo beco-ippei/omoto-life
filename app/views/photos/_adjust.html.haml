@@ -1,0 +1,38 @@
+.image-pane
+  /TODO これをポップアップか何かにしたい
+  / 編集ボタンだけにしておいて、ポップアップ上？とかで編集させる
+  / 初回アップロード時のUIと共通化するなら、そのままでも良さそう
+  / 写真編集の確定ボタンでAjaxで画像加工座標情報とかだけPostする
+  %span.image-frame
+    = image_tag image_path(@item), class: 'main-image'
+
+  / 画像の回転ボタン
+  %button.image-manipulate.rotate-r.btn.btn-warning.btn-sm
+    %i.fa.fa-rotate-right
+  %button.image-manipulate.rotate-l.btn.btn-warning.btn-sm
+    %i.fa.fa-rotate-left
+
+  / 画像のサイズ調整ボタン (top / botton)
+  %button.image-manipulate.top.left-side.btn.btn-info.btn-sm
+    %i.fa.fa-arrow-down
+  %button.image-manipulate.top.btn.btn-warning.btn-sm
+    %i.fa.fa-arrow-up
+  %button.image-manipulate.bottom.left-side.btn.btn-info.btn-sm
+    %i.fa.fa-arrow-up
+  %button.image-manipulate.bottom.btn.btn-warning.btn-sm
+    %i.fa.fa-arrow-down
+
+  / 画像のサイズ調整ボタン (left / right)
+  %button.image-manipulate.left.over.btn.btn-info.btn-sm
+    %i.fa.fa-arrow-right
+  %button.image-manipulate.left.btn.btn-warning.btn-sm
+    %i.fa.fa-arrow-left
+  %button.image-manipulate.right.over.btn.btn-info.btn-sm
+    %i.fa.fa-arrow-left
+  %button.image-manipulate.right.btn.btn-warning.btn-sm
+    %i.fa.fa-arrow-right
+
+  / 画像変更保存ボタン
+  %button.image-manipulate.save.btn.btn-primary
+    %i.fa.fa-cloud-upload &nbsp;変更を保存
+
