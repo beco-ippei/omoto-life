@@ -5,6 +5,10 @@ require 'tempfile'
 
 require 'RMagick'
 
+if Rails.env.development?
+  require 'ir_b'
+end
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)

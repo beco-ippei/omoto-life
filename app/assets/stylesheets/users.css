@@ -3,16 +3,25 @@
  in application.css
 */
 
+.user { border-top: solid 1px #ccc; }
+.user:last { border-bottom: solid 1px #ccc; }
+.user div {
+  float: left;
+}
+
+.profile {
+  width: 100px;
+  vertical-align: middle;
+}
 .user-item-image {
   width: 80px;
   height: 80px;
-  margin: 0 5px;
-/*  display: table-cell; */
-  float: left;
-  text-align: center;
-  border: solid 1px #ccc;
+  margin: 0 3px;
 }
-.user-item-image a {
+.image-wrapper {
+  width: 80px;
+  height: 80px;
+  text-align: center;
   display: table-cell;
   vertical-align: middle;
 }

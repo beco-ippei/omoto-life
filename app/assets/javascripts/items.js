@@ -1,6 +1,26 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
+pre_frame_width = 0;
+var adjustImageFrameHeight = function() {
+  var frame = $('.image-pane');
+  var frame_width = frame.width();
+  //var frame_height = frame.height();
+  //if (frame_width >= frame_height) {
+  if (frame_width != pre_frame_width) {
+    frame.css('height', frame_width+100);
+    $('.image-frame').css('height', frame_width);
+  }
+  pre_frame_width = frame_width;
+};
+adjustImageFrameHeight();
+
+$(function() {
+  // adjust image-frame height
+  //window.on('resize', onResize(function() {
+  window.onresize = adjustImageFrameHeight;
+});
+
 var image_state = {
   rotation: 0,
   top: 0,

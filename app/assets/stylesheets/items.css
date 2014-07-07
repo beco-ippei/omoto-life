@@ -1,4 +1,12 @@
-.item-image {
+.list-item {
+  float: left;
+  width: 150px;
+  height: 190px;
+  border: solid 1px #ddd;
+  margin: 3px;
+  padding: 5px;
+}
+.image-wrapper {
   width: 130px;
   height: 130px;
   margin: 0 5px;
@@ -10,18 +18,21 @@
   max-width: 130px;
   max-height: 130px;
 }
-.list-item {
-  float: left;
-  width: 150px;
-  height: 190px;
-  border: solid 1px #ddd;
-  margin: 3px;
-  padding: 5px;
+@media (max-width: 450px) {
+  .container {    /* at bootstrap.css */
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .list-item {
+    width: 48%;
+    margin: 2px;
+  }
 }
 .list-item a.item-link:hover {
   color: #0000ff;
 }
 .item.owner {
+  text-align: right;
 }
 .functions {
   margin-top: -17px;
@@ -72,8 +83,23 @@ button.comment {
   max-width: 500px;
   max-height: 500px;
 }
+.image-pane button.rotate {
+  position: absolute;
+}
+.thumb ul {
+  height: 100px;
+  margin: 5px;
+}
+.thumb-list {
+  list-style: none;
+  float: left;
+}
+.thumb-list img {
+  max-width: 80px;
+  max-height: 80px;
+}
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .item-view .image-pane {
     margin: 2px;
     width: 100%;
@@ -89,6 +115,31 @@ button.comment {
     max-width: 100%;
     max-height: 100%;
   }
+}
+/* TODO: やみくもに screen-width ごとに設定している */
+/*@media (max-width: 800px) {
+  .image-pane { width: 800px; height: 1000px; }
+  .image-frame { width: 800px; height: 800px; }
+}*/
+@media (max-width: 700px) {
+  .image-pane { width: 700px; height: 800px; }
+  .image-frame { width: 700px; height: 700px; }
+}
+@media (max-width: 600px) {
+  .image-pane { width: 600px; height: 700px; }
+  .image-frame { width: 600px; height: 600px; }
+}
+@media (max-width: 500px) {
+  .image-pane { width: 500px; height: 600px; }
+  .image-frame { width: 500px; height: 500px; }
+}
+@media (max-width: 400px) {
+  .image-pane { width: 400px; height: 500px; }
+  .image-frame { width: 400px; height: 400px; }
+}
+@media (max-width: 300px) {
+  .image-pane { width: 300px; height: 400px; }
+  .image-frame { width: 300px; height: 300px; }
 }
 /*@media screen and (max-width: 1000px) {
   .item-view .image-frame {
@@ -106,6 +157,8 @@ button.comment {
   font-size: 1.4em;
   padding: 2px 6px;
 }
+.adjust { left: 5px; bottom: 5px; }
+/*
 .save { left: 5px; bottom: 5px; }
 .rotate-r { right: 5px; bottom: 42px; }
 .rotate-l { right: 5px; bottom: 5px; }
@@ -116,6 +169,7 @@ button.comment {
 .left { top: 250px; left: 5px; }
 .right { top: 250px; right: 5px; }
 .over { margin-top: -40px; }
+*/
 
 /* おもと情報欄 */
 .item-view .info-pane {
@@ -140,6 +194,10 @@ button.comment {
 .item-view .field.title {
   margin: 20px 0;
 }
+.field .full-width {
+  width: 100%;
+}
+
 .item-view .title .field-value {
   font-size: 1.5em;
 }

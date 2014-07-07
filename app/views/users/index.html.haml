@@ -1,20 +1,19 @@
-%h1 Listing users
+%h2 人をみつける
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Age
-      %th Items
-  %tbody
-    - @users.each do |user|
-      %tr
-        %td= link_to user.name, user
-        %td= user.age
-        %td
-          - user.items[0...8].each do |item|
-            .user-item-image
-              = link_to item, class: 'item-link' do
-                = image_tag image_path(item)
-          .clear
+.user-list
+  - @users.each do |user|
+    .user
+      .profile
+        = link_to user.name, user
+        %br
+        = user.age
+      - user.items[0...3].each do |item|
+        = link_to item, class: 'item-link' do
+          .user-item-image
+            .image-wrapper
+              - unless item.photos.empty?
+                = image_tag thumbnail_path(item)
+              - else
+                %span No Image
+      .clear
 
