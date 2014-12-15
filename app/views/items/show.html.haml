@@ -5,13 +5,32 @@
         %span.main-image
           まだ写真がアップロードされていません
     - else
-      %span.image-frame
-        = image_tag image_path(@item), class: 'main-image'
-      .thumb
-        %ul
-          - @item.photos.each do |photo|
-            %li.thumb-list
-              = image_tag photo_thumbnail_path(photo)
+
+      #image-slider.slider-wrapper
+        .main-pane
+          .arrow.left.hidden
+            /TODO: ArrowImage
+            /%img{src:"http://www.dreamvs.jp/sp/images/sp/button/art-left.png"}
+            %span &lt;
+          .slider
+            %ul
+              - @item.photos.each_with_index do |photo, idx|
+                %li
+                  - position = 'first' if idx == 0
+                  = image_tag photo_path(photo), class: position
+                  .image-number
+                    = "[Photo] #{idx+1}/#{@item.photos.size} 枚目"
+                  = image_tag photo_thumbnail_path(photo), class: 'thumb'
+          .arrow.right.hidden
+            %span &gt;
+            /%img{src:"http://www.dreamvs.jp/sp/images/sp/button/art-left.png"}
+        .thumb-pane
+          .arrow.left.hidden
+            %img{src:"http://www.dreamvs.jp/sp/images/sp/button/art-left.png"}
+          .thumb-list
+          .arrow.right.hidden
+            %img{src:"http://www.dreamvs.jp/sp/images/sp/button/art-right.png"}
+
   .info-pane
     - if current_user && current_user.id == @item.user.id
       .edit.field
@@ -46,4 +65,10 @@
                 = button_tag '送信', class: 'btn btn-info comment'
 
   .clear
+
+= javascript_include_tag "http://sample.beco-ippei.net/slidery/js/jquery.slidery.js", charset:"utf-8"
+:javascript
+  $(function() {
+    $('#image-slider').slidery();
+  });
 
