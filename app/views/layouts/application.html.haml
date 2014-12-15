@@ -12,6 +12,8 @@
 
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     %link{href: "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css", rel: "stylesheet"}/
+    %link{rel:"stylesheet", href:"//sample.beco-ippei.net/slidery/css/jquery.slidery.css"}
+    = javascript_include_tag "application"
     = csrf_meta_tags
 
     %title OmotoFriends #TODO app_name
@@ -31,5 +33,4 @@
         = render partial: 'layouts/footer'
 
     #footer-meta
-      = javascript_include_tag "application"
 
